@@ -9,7 +9,7 @@ get the wan ipv4 from different resolvers
 ## pure typescript package
 
 your relevant `webpack.config.js` should look like this
-```json
+```javascript
 module: {
     rules: [
         {
