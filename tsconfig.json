@@ -8,7 +8,7 @@
         ],
         "outDir": "dist/",
         "rootDir": "src/",
-        "module": "none",
+        "module": "None",
         "watch": true,
         "declaration": true,
         "typeRoots": [
