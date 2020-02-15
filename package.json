@@ -3,7 +3,7 @@
     "typescript": "^3.7.5"
   },
   "name": "wanip",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "get the wan ipv4 from different resolvers",
   "types": "dist/index.d.ts",
   "main": "src/index.ts",
