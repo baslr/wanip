@@ -8,12 +8,9 @@
         ],
         "outDir": "dist/",
         "rootDir": "src/",
-        "module": "None",
+        "module": "ES6",
         "watch": true,
-        "declaration": true,
-        "typeRoots": [
-            "node_modules/@types"
-        ]
+        "declaration": true
     },
     "include": [
         "src/**/*"

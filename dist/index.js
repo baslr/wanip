@@ -1,8 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const child_process_1 = require("child_process");
-const util_1 = require("util");
-const execPromise = util_1.promisify(child_process_1.exec);
+import { exec } from 'child_process';
+import { promisify } from 'util';
+const execPromise = promisify(exec);
 const ipv4Checkers = [
     'curl https://api.ipify.org 2>/dev/null',
     'curl https://ifconfig.me/ip 2>/dev/null',
@@ -19,7 +17,6 @@ const ipv4Checkers = [
     `dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com|tr -d '"'`,
     `dig -4 +short myip.opendns.com @resolver1.opendns.com`
 ];
-exports.ipv4Checkers = ipv4Checkers;
 const checkIpv4 = async (options = { timeout: 60 * 1000 }) => (await Promise.all(ipv4Checkers.map(cmd => execPromise(cmd, options))))
     .map(result => result.stdout.trim())
     .reduce((wanIpMap, wanIp) => {
@@ -32,4 +29,4 @@ const checkIpv4 = async (options = { timeout: 60 * 1000 }) => (await Promise.all
     wanIpMap.set(wanIp, 1 + wanIpMap.get(wanIp));
     return wanIpMap;
 }, new Map());
-exports.checkIpv4 = checkIpv4;
+export { ipv4Checkers, checkIpv4 };
