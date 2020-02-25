@@ -3,7 +3,7 @@ get the wan ipv4 from different resolvers
 
 ## prerequisites
 
-* access to `curl` and `dig`
+* access to `curl`, `dig` and `tr`
 
 
 ## pure typescript package
