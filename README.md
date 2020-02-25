@@ -26,7 +26,7 @@ your relevant `tsconfig.json` should look like this
 ```json
 "include": [
     "src/**/*",
-    "node_modules/wanip/src/**/*"
+    "node_modules/wanip"
 ]
 ```
 
