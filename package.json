@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "typescript": "^3.7.5"
+    "typescript": "^3.8.3"
   },
   "name": "wanip",
   "version": "1.0.2",

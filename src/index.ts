@@ -23,15 +23,13 @@ const checkIpv4 = async (options: ExecOptions = { timeout: 60 * 1000 }) =>
     (await Promise.all(ipv4Checkers.map(cmd => execPromise(cmd, options))))
         .map(result => result.stdout.trim())
         .reduce((wanIpMap, wanIp) => {
-            if (0 !== wanIp.search(/^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$/)) {
-                return wanIpMap;
-            }
+            if (0 === wanIp.search(/^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$/)) {
+                if (!wanIpMap.has(wanIp)) {
+                    wanIpMap.set(wanIp, 0);
+                }
 
-            if (!wanIpMap.has(wanIp)) {
-                wanIpMap.set(wanIp, 0);
+                wanIpMap.set(wanIp, 1 + wanIpMap.get(wanIp));
             }
-
-            wanIpMap.set(wanIp, 1 + wanIpMap.get(wanIp));
 
             return wanIpMap;
         }, new Map<string, number>());
